@@ -70,6 +70,7 @@ For better performance with large datasets, configure GPU support:
 1. Install the compatible CUDA version for your GPU. Check [Nvidia's website](https://developer.nvidia.com/cuda-downloads).
 2. Install PyTorch with CUDA support from [PyTorch's official website](https://pytorch.org/).
 3. Run the recommended command in your terminal to install PyTorch with CUDA.
+   
 If you have downloaded "cuda==2.16" stable version then run this code for both Windows and Linux system.
 
 ```bash
