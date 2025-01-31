@@ -118,8 +118,17 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
-## 10. Conclusion
+## 10. Count
 Congratulations! You've successfully set up and trained a YOLO model to count fish.
+Now, We need to count them, 
+I have attached all the necessary documents except footage for footage you can download from "mydataset"
+Here you can fine tune sort.py file such that you can easily get desirable results. In classes.txt, we 
+define classes name. If you are using multiple classes just include in that and make a change in count.py as well.
+
+
+
+
+
 
 For improvements or contributions, feel free to submit a pull request!
 
