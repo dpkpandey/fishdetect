@@ -131,7 +131,7 @@ import cv2
 from ultralytics import YOLO
 
 # Load the trained model
-model = YOLO("lastsmall1000all.pt")
+model = YOLO("lastsmall1000all.pt") #here I have lastY11m500.pt and bestY11m500.pt files both are very good model those output result footage is done in this model.
 results = model.predict("outputfile.mp4", show=True, save=True, conf=0.30, tracker ="botsort.yaml") # you can choose your tracker= "bytetrack.yaml" or other.
 cv2.imshow("Detection", result.plot())
 if cv2.waitKey(1) & OxFF ==ord('q'):
