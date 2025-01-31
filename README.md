@@ -158,9 +158,8 @@ simple detection is faster for real time detection and counting as compare to OB
 For improvements or contributions, feel free to submit a pull request!
 
 ## References
-# This CITATION.cff file was generated with https://bit.ly/cffinit
 
-cff-version: 1.2.0
+```bash
 title: Ultralytics YOLO
 message: >-
   If you use this software, please cite it using the
@@ -184,4 +183,4 @@ url: 'https://ultralytics.com'
 license: AGPL-3.0
 version: 8.0.0
 date-released: '2023-01-10'
-
+```
