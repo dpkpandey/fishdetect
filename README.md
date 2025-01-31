@@ -87,7 +87,7 @@ val: images
 names:
   0: fish
 ```
-For multiple classes (e.g., algae detection):
+### For multiple classes (e.g., algae detection) : You can skip this for now
 ```yaml
 path: C:\Users\YourComputer\Desktop\algaedetect  #This is path of your current directory
 train: images
