@@ -2,20 +2,27 @@
 Use YOLO model to count fish
 
 First Now,
-## Install python in your computer. 
+##  1. Install python in your computer. 
 Where do you want to do this job. If you choose your local environment as IDLE or visual studio or any pycharm or Google Colab or Jupyternotebook.
 
 I love to do in local environment rather than googlecolab but there is code for both. It is almost same]
 Lets dig in 
 
 This is where we need to mainly focus. As we are performing this work in python
-so first of all we need to install python in our computer. It is better to install recent
+so first of all we need to install python in our computer. It is better to install latest
 version of the software. ( sometimes we might need to downgrade software version be-
 cause of compatibilities of other module). If you are working in Windows just download
-python and install it. If you are woking in Linux then, Go to terminal and type sudo
+python and install it. If you are woking in Linux then, Go to terminal and type
+'''sudo
 apt-get update && sudo apt-get upgrade && sudo apt-get install python3
 -y .
+# 2. Set Up Your Working Directory
+Create a new folder for your project. For example, create a folder named fishdetect on your Desktop. Navigate to this folder using the command prompt or terminal:
+# Windows
+cd Desktop\fishdetect
 
+# Linux
+cd Desktop/fishdetect
 
 Now, you have python installed in your system. Find out the working directory where
 you are going to work. I worked in both Ubuntu and Windows environment. So, I
