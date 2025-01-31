@@ -158,7 +158,6 @@ This approximation works fine for Barramundi fish for any size becasue of empric
 applicable for detection, if you want to work on OBB detection then you can direclty impliment length and width as in detection no need to use " $\textcolor{red}{dpk-length}$ $\textcolor{red}{ transformation"}$. However,
 simple detection is faster for real time detection and counting as compare to OBB with small computational power.
 
-For improvements or contributions, feel free to submit a pull request!
 
 ## References
 
@@ -191,3 +190,6 @@ date-released: '2023-01-10'
 ```bash
 This project is done in Humpty Doo Barramundi as a Research and Development project, thanks to all helping hands 
 ```
+
+For improvements or contributions, feel free to submit a pull request!
+
