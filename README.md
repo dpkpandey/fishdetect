@@ -93,9 +93,9 @@ val: images
 names:
   0: fish
 ```
-### For multiple classes (e.g., algae detection) : #
+ 
+### For multiple classes (e.g., algae detection):  $\textcolor{red}{You}$ $\textcolor{red}{can}$ $\textcolor{red}{skip}$ $\textcolor{red}{this}$ $\textcolor{red}{one}$  $\textcolor{red}{here,}$ $\textcolor{red}{this}$ $\textcolor{red}{is}$ $\textcolor{red}{just}$ $\textcolor{red}{an}$  $\textcolor{red}{example}$ $\textcolor{red}{of}$ $\textcolor{red}{how}$ $\textcolor{red}{to}$ $\textcolor{red}{use}$  $\textcolor{red}{multiple}$ $\textcolor{red}{classes}$
 
- '\$\textcolor{red}{You can skip this one here, this is just example how to  use multiple classes}\ $'
  
 ```yaml
 path: C:\Users\YourComputer\Desktop\algaedetect  #This is the path of your current directory
