@@ -93,7 +93,7 @@ val: images
 names:
   0: fish
 ```
-### For multiple classes (e.g., algae detection) : # \textcolor{red}{You can skip this one here, this is just example how to  use multiple classes}
+### For multiple classes (e.g., algae detection) : # $\textcolor{red}{You\ can \skip \this \one \here,\ this\ is\ just\ example \how \to\  use \multiple\ classes} $
 ```yaml
 path: C:\Users\YourComputer\Desktop\algaedetect  #This is the path of your current directory
 train: images
