@@ -81,7 +81,7 @@ For better performance with large datasets, configure GPU support:
 ## 7. Create YAML Configuration File
 Create `fishdetect.yaml` to define the dataset path and classes:
 ```yaml
-path: C:\Users\YourComputer\Desktop\fishdetect
+path: C:\Users\YourComputer\Desktop\fishdetect  #This is path of your current directory you can do pwd to see location and can copy that
 train: images
 val: images
 names:
@@ -89,7 +89,7 @@ names:
 ```
 For multiple classes (e.g., algae detection):
 ```yaml
-path: C:\Users\YourComputer\Desktop\algaedetect
+path: C:\Users\YourComputer\Desktop\algaedetect  #This is path of your current directory
 train: images
 val: images
 nc: 15
