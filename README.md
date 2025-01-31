@@ -13,7 +13,7 @@ To install Python:
   sudo apt-get install python3 -y
   ```
 
-## 2. Set Up Your Working Directory
+## 2. Set Up Your Working Directory 
 Create a new folder for your project. Example:
 
 - **Windows**:
@@ -24,7 +24,16 @@ Create a new folder for your project. Example:
   ```bash
   cd Desktop/fishdetect
   ```
-
+or else you can directly clone this repo to your computer 
+```bash
+git clone https://github.com/HDbarramundi/fishdetect
+cd fishdetect
+```
+Then folow follow step 3 and 4 and do 
+```bash
+pip install -r requirements.txt
+```
+so you do not have to install other libraries.
 ## 3. Create a Virtual Environment
 To manage dependencies, create and activate a virtual environment:
 
