@@ -16,7 +16,7 @@ python and install it. If you are woking in Linux then, Go to terminal and type
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install python3 -y '''
+sudo apt-get install python3 -y ```
 
 # 2. Set Up Your Working Directory
 Create a new folder for your project. For example, create a folder named fishdetect on your Desktop. Navigate to this folder using the command prompt or terminal:
