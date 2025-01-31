@@ -1,125 +1,132 @@
-FishCount
+ # FishCountchang
+Use YOLO model to count fish
 
-FishCount uses the YOLO model to count fish in images or videos.
+First Now,
+##  1. Install python in your computer. 
+Where do you want to do this job. If you choose your local environment as IDLE or visual studio or any pycharm or Google Colab or Jupyternotebook.
 
-1. Install Python
+I love to do in local environment rather than googlecolab but there is code for both. It is almost same]
+Lets dig in 
 
-Ensure Python is installed on your computer. You can work in a local environment such as IDLE, Visual Studio, PyCharm, or use Google Colab or Jupyter Notebook. This guide focuses on a local setup, but instructions for Colab are also provided.
+This is where we need to mainly focus. As we are performing this work in python
+so first of all we need to install python in our computer. It is better to install latest
+version of the software. ( sometimes we might need to downgrade software version be-
+cause of compatibilities of other module). If you are working in Windows just download
+python and install it. If you are woking in Linux then, Go to terminal and type
 
-To install Python:
-
-Windows: Download and install the latest version from Python's official website.
-
-Linux: Open a terminal and run:
-
+```bash
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install python3 -y
+sudo apt-get install python3 -y ```bash
 
-2. Set Up Your Working Directory
-
-Create a new folder for your project. Example:
-
-Windows:
-
+# 2. Set Up Your Working Directory
+Create a new folder for your project. For example, create a folder named fishdetect on your Desktop. Navigate to this folder using the command prompt or terminal:
+# Windows
 cd Desktop\fishdetect
 
-Linux:
-
+# Linux
 cd Desktop/fishdetect
 
-3. Create a Virtual Environment
+Now, you have python installed in your system. Find out the working directory where
+you are going to work. I worked in both Ubuntu and Windows environment. So, I
+made new folder in Desktop for my comfort and named as ”fishdetect” in both com-
+puter. So, I will explain what to do. Go to command prompt or terminal according
+to you Operating System (OS) then type cd Desktop/fishdetect ( For Windows use
+\and for linux use /)
 
-To manage dependencies, create and activate a virtual environment:
 
-Windows:
+Then you will be on the fishdetect folder now you all need to do is to create virtual
+local python environment just by typing
 
-python -m venv myenv
-myenv\Scripts\activate
+In Windows: python –m venv myenv
 
-Linux:
+Then type myenv\Scripts\activate
 
-python3 -m venv myenv
-source myenv/bin/activate
+Then python detect.py (this detect.py file is to run the command skip for now)
 
-To exit the virtual environment, type:
+In Linux: python3 -m venv myenv
 
-deactivate
+Then type source myenv/bin/activate
 
-4. Install Dependencies
+Then python3 detect.py
 
-Before proceeding, upgrade pip and install required libraries:
 
-python3 -m pip install --upgrade pip
-pip install ultralytics opencv-python numpy openpyxl torch
+We are intend to work in Ultralytics, such that we need to install some packages before
+we do other stuff.
 
-5. Enable GPU Acceleration (Optional)
 
-For better performance with large datasets, configure GPU support:
+Now lets do first upgrade our pip packages
 
-Install the compatible CUDA version for your GPU. Check Nvidia's website.
+python3 -m pip install –upgrade pip
 
-Install PyTorch with CUDA support from PyTorch's official website.
+pip install ultralytics
 
-Run the recommended command in your terminal to install PyTorch with CUDA.
+pip install opencv
 
-6. Prepare Dataset
+pip install numpy
 
-Sign up or log in to Roboflow.
+pip install openpyxl
 
-Upload and annotate images.
+pip install torch
 
-Download the dataset and organize files:
+As other packages as required. If you intended to get out from virtual environment the
+just type deactivate.
 
-Place images in the images folder.
+For small work with less dataset you might be able to get everthing with CPU, for
+large amount of data and work in real time we need to use GPU.
 
-Place annotation .txt files in the labels folder inside your fishdetect directory.
+Enable GPU Accelerator for this simulation:
+To access GPU capabilities, we need to focus on the compatibility of the cuda version
+with the computer we are working on. For example, GEFORCE RTX 3060, cuda 12.6
+pre version is compatible. So, first go to the Nvidia website for cuda and download
+recommended version and install it on the computer. You might need admin access to
+install this software. It will help you to use GPU for the pytorch. Go to this website
+“https://pytorch.org/” and choose which pytorch build you want
+to use. For lower version of the cuda compute platform choose your build. Then choose
+your OS system. In this case I am using a pip so I will go for the pip package. If you
+are working with annoconda you can choose conda package. And language is python
+for this program. If you are working with C++ or Java, you can choose that and your
+installed cuda version. Then you will get run command at bottom, copy and paste in
+the terminal where you have installed virtual environment. Now you should be able to
+run GPU enabled pytorch for simulation.
+Now, before we jump in any we need data, lets jump in roboflow and sign up or log in.
+For public project you get it for free thanks to them. Now insert images and annotate
+and export them. Put all images in images folder and all annotated .txt file in labels
+folder in your working directory, i.e., fishdetect. Now, we need to create .yaml file.
+You can name as you want I am naming as fishdetect.yaml for my conveniences.
 
-7. Create YAML Configuration File
-
-Create fishdetect.yaml to define the dataset path and classes:
-
-path: C:\Users\YourComputer\Desktop\fishdetect
-train: images
-val: images
+Now, in fishdetect.yaml file it should be like this
+Path: C:\ Users\ yourcomputer\ Desktop\ fishdetect
+Train: images
+Val: images
+#Classes:
 names:
   0: fish
 
-For multiple classes (e.g., algae detection):
+This explains here the path of our training datasets, which folder to choose for training
+and validation and what classes are available in our data. 
 
-path: C:\Users\YourComputer\Desktop\algaedetect
+Well if you have more than one class then you can define here at first after annotation.
+Like if we are working with algae then
+
+path: C:\Users\Yourcomputer\Desktop\algaedetect
 train: images
 val: images
 nc: 15
-names: ['Ceratium', 'Chaetoceros', 'Cyclotella', 'Cyanobacteria', 'Euglenoid Eutreptiella', 'Gymnodinium', 'Microcystis', 'New', 'Oocystis', 'Oocytis', 'Oscillatoria', 'Pleurosigma sp.', 'Pseudo-nitzschia', 'Pseudo-nitzschia sp.', 'macro-algae']
+names: [‘Ceratium’, ‘Chaetoceros’, ‘Cyclotella’, ‘Cynobacteria’,
+‘Euglenoid Eutreptiella’, ‘Gymnodinium’, ‘Microcyctis’, ‘New’,
+‘Oocystis’, ‘Oocytis’, ‘Oscillatoria’, ‘Pleurosigma sp.’,
+‘Pseudo-nitzchia’, ‘Pseudo-nitzschia sp.’, ‘macro-algae’]
 
-8. Train the Model
-
-Create main.py with the following content:
+After this lets make main.py file where we are going to train our data to get customize
+pytorch model to detect fish. Now, in main.py
 
 from ultralytics import YOLO
+#load a model
+model= YOLO("yolov11m.yaml").load("yolo11m.pt") # if you want to build from
+a scratch use this command
+#model = YOLO(" yolo11m.pt") #Load pre-trained model (recommended for training)
+results= model.train(data ="fishdetect.yaml", batch= 8, epochs =500)
 
-# Load a model
-model = YOLO("yolov11m.yaml").load("yolo11m.pt")  # Train from scratch
-# model = YOLO("yolo11m.pt")  # Load pre-trained model (recommended)
-
-# Train the model
-results = model.train(data="fishdetect.yaml", batch=8, epochs=500)
-
-Adjust batch size according to your GPU memory.
-
-Run the script:
-
-python main.py
-
-9. Run Detection
-
-After training, use the model to detect fish in images or videos:
-
-results = model.predict("test_image.jpg")
-
-10. Conclusion
-
-Congratulations! You've successfully set up and trained a YOLO model to count fish.
-
-For improvements or contributions, feel free to submit a pull request!
-
+#choose batch size according to your GPU memory
+Now go in above terminal and run main.py then you just need to wait until it finishes.
+Well done.
