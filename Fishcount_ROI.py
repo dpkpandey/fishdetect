@@ -129,7 +129,7 @@ class FishCounter:
         # Display the total count of fish
         cvzone.putTextRect(frame, f'Detected fish No = {len(self.counter_up)}', [80, 34], 
                            colorR=(0, 0, 255), thickness=4, scale=2.3, border=3)
-        cvzone.putTextRect(frame, f'DEEPAK COUNTER', [(1040), (700)], 
+        cvzone.putTextRect(frame, f'MY FISH COUNTER', [(1040), (700)], 
                            colorR=(255, 0, 100), thickness=2, scale=1.3, border=1)
         cv2.rectangle(frame, (540,420), (800,560), (255,0,255),2)
         
