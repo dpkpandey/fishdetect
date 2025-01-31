@@ -57,7 +57,7 @@ we do other stuff.
 
 
 Now lets do first upgrade our pip packages
-
+```bash
 python3 -m pip install –upgrade pip
 
 pip install ultralytics
@@ -69,6 +69,7 @@ pip install numpy
 pip install openpyxl
 
 pip install torch
+```
 
 As other packages as required. If you intended to get out from virtual environment the
 just type deactivate.
@@ -96,39 +97,4 @@ and export them. Put all images in images folder and all annotated .txt file in 
 folder in your working directory, i.e., fishdetect. Now, we need to create .yaml file.
 You can name as you want I am naming as fishdetect.yaml for my conveniences.
 
-Now, in fishdetect.yaml file it should be like this
-Path: C:\ Users\ yourcomputer\ Desktop\ fishdetect
-Train: images
-Val: images
-#Classes:
-names:
-  0: fish
 
-This explains here the path of our training datasets, which folder to choose for training
-and validation and what classes are available in our data. 
-
-Well if you have more than one class then you can define here at first after annotation.
-Like if we are working with algae then
-
-path: C:\Users\Yourcomputer\Desktop\algaedetect
-train: images
-val: images
-nc: 15
-names: [‘Ceratium’, ‘Chaetoceros’, ‘Cyclotella’, ‘Cynobacteria’,
-‘Euglenoid Eutreptiella’, ‘Gymnodinium’, ‘Microcyctis’, ‘New’,
-‘Oocystis’, ‘Oocytis’, ‘Oscillatoria’, ‘Pleurosigma sp.’,
-‘Pseudo-nitzchia’, ‘Pseudo-nitzschia sp.’, ‘macro-algae’]
-
-After this lets make main.py file where we are going to train our data to get customize
-pytorch model to detect fish. Now, in main.py
-
-from ultralytics import YOLO
-#load a model
-model= YOLO("yolov11m.yaml").load("yolo11m.pt") # if you want to build from
-a scratch use this command
-#model = YOLO(" yolo11m.pt") #Load pre-trained model (recommended for training)
-results= model.train(data ="fishdetect.yaml", batch= 8, epochs =500)
-
-#choose batch size according to your GPU memory
-Now go in above terminal and run main.py then you just need to wait until it finishes.
-Well done.
