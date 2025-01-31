@@ -108,7 +108,7 @@ import cv2
 from ultralytics import YOLO
 
 # Load the trained model
-model = YOLO("last50obb.pt")
+model = YOLO("lastsmall1000all.pt")
 results = model.predict("outputfile.mp4", show=True, save=True, conf=0.30, tracker ="botsort.yaml")
 cv2.imshow("Detection", result.plot())
 if cv2.waitKey(1) & OxFF ==ord('q'):
