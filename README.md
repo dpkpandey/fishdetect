@@ -152,7 +152,7 @@ If you are going to count other object then go for it. It will work. Just rememb
 Now download all the files in same folder and start counting. Good luck.
 
 
- # 11. Measure length and Weight
+ ## 11. Measure length and Weight
 To measure length and weight of the fish we use dpk approximation as explained in the code more documentations will be provided on request on above youtube channel. 
 This approximation works fine for Barramundi fish for any size becasue of emprical results on large number of fish. This approximation to pull length from detection is only 
 applicable for detection, if you want to work on OBB detection then you can direclty impliment length and width as in detection no need to use "dpk-length transformation". However,
