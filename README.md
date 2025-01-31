@@ -60,7 +60,7 @@ with the computer we are working on. For example, GEFORCE RTX 3060, cuda 12.6
 pre version is compatible. So, first go to the Nvidia website for cuda and download
 recommended version and install it on the computer. You might need admin access to
 install this software. It will help you to use GPU for the pytorch. Go to this website
-“https://pytorch.org/get-started/locally/” and choose which pytorch build you want
+“https://pytorch.org/” and choose which pytorch build you want
 to use. For lower version of the cuda compute platform choose your build. Then choose
 your OS system. In this case I am using a pip so I will go for the pip package. If you
 are working with annoconda you can choose conda package. And language is python
