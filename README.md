@@ -41,12 +41,12 @@ we do other stuff.
 
 Now lets do first upgrade our pip packages
 
-python3 -m pip install –upgrade pip
-pip install ultralytics
-pip install opencv
-pip install numpy
-pip install openpyxl
-pip install torch
+python3 -m pip install –upgrade pip\\
+pip install ultralytics\\
+pip install opencv\\
+pip install numpy\\
+pip install openpyxl\\
+pip install torch\\
 
 As other packages as required. If you intended to get out from virtual environment the
 just type deactivate.
