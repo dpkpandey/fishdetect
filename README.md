@@ -95,7 +95,7 @@ names:
 ```
 ### For multiple classes (e.g., algae detection) : You can skip this for now
 ```yaml
-path: C:\Users\YourComputer\Desktop\algaedetect  #This is path of your current directory
+path: C:\Users\YourComputer\Desktop\algaedetect  # \red{This is path of your current directory}
 train: images
 val: images
 nc: 15
