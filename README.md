@@ -33,7 +33,7 @@ Then folow follow step 3 and 4 and do
 ```bash
 pip install -r requirements.txt
 ```
-so you do not have to install other libraries.
+so you can skip no.# 4 installing things 
 ## 3. Create a Virtual Environment
 To manage dependencies, create and activate a virtual environment:
 
