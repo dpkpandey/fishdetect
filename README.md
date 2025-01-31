@@ -33,7 +33,8 @@ Then folow follow step 3 and 4 and do
 ```bash
 pip install -r requirements.txt
 ```
-so you can skip no.# 4 installing things 
+so you can skip installing other dependancies as explained in step 4
+
 ## 3. Create a Virtual Environment
 To manage dependencies, create and activate a virtual environment:
 
@@ -57,6 +58,9 @@ deactivate
 Before proceeding, upgrade `pip` and install required libraries:
 ```bash
 python3 -m pip install --upgrade pip
+```
+If you have not clone repo and want to manaully then you should install required dependencies, install all as required.
+```bash
 pip install ultralytics opencv-python numpy openpyxl torch
 ```
 
