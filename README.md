@@ -187,9 +187,9 @@ version: 8.0.0
 date-released: '2023-01-10'
 ```
 
-```bash
-This project is done in Humpty Doo Barramundi as a Research and Development project, thanks to all helping hands 
-```
+
+##### This project is done in Humpty Doo Barramundi as a Research and Development project, thanks to all helping hands 
+
 
 For improvements or contributions, feel free to submit a pull request!
 
