@@ -26,7 +26,7 @@ Create a new folder for your project. Example:
   ```
 or else you can directly clone this repo to your computer 
 ```bash
-git clone https://github.com/HDbarramundi/fishdetect
+git clone https://github.com/dpkpandey/fishdetect
 cd fishdetect
 ```
 Then folow follow step 3 and 4 and do 
