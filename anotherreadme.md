@@ -104,6 +104,11 @@ results = model.train(data="fishdetect.yaml", batch=8, epochs=500)
 ## 9. Run Detection
 After training, use the model to detect fish in images or videos:
 ```python
+import cv2
+from ultralytics import YOLO
+
+# Load the trained model
+model = YOLO("last50obb.pt")
 results = model.predict("outputfile.mp4", show=True, save=True, conf=0.30, tracker ="botsort.yaml")
 cv2.imshow("Detection", result.plot())
 if cv2.waitKey(1) & OxFF ==ord('q'):
