@@ -93,7 +93,8 @@ val: images
 names:
   0: fish
 ```
-### For multiple classes (e.g., algae detection) : #  <span style="color: red;">This is the path of your current directory</span> # **`This is the path of your current directory`**
+### For multiple classes (e.g., algae detection) : # $\textcolor{red}{This is the path of your current directory}$
+ # **`This is the path of your current directory`**
 ```yaml
 path: C:\Users\YourComputer\Desktop\algaedetect  #This is the path of your current directory
 train: images
