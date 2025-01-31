@@ -116,6 +116,7 @@ if cv2.waitKey(1) & OxFF ==ord('q'):
     break
 cap.release()
 cv2.destroyAllWindows()
+# The result for this code will be saved in run/predict folder
 ```
 
 ## 10. Count
