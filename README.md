@@ -123,7 +123,7 @@ from ultralytics import YOLO
 
 # Load the trained model
 model = YOLO("lastsmall1000all.pt")
-results = model.predict("outputfile.mp4", show=True, save=True, conf=0.30, tracker ="botsort.yaml")
+results = model.predict("outputfile.mp4", show=True, save=True, conf=0.30, tracker ="botsort.yaml") # you can choose your tracker= "bytetrack.yaml" or other.
 cv2.imshow("Detection", result.plot())
 if cv2.waitKey(1) & OxFF ==ord('q'):
     break
