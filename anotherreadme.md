@@ -89,7 +89,7 @@ Create `main.py` with the following content:
 from ultralytics import YOLO
 
 # Load a model
-model = YOLO("yolov11m.yaml").load("yolo11m.pt")  # Train from scratch
+model = YOLO("yolo11m.yaml").load("yolo11m.pt")  # Train from scratch
 # model = YOLO("yolo11m.pt")  # Load pre-trained model (recommended)
 
 # Train the model
