@@ -102,7 +102,8 @@ results = model.train(data="fishdetect.yaml", batch=8, epochs=500)
   ```
 
 ## 9. Run Detection
-After training, use the model to detect fish in images or videos:
+After training, see the run/train/weight folder and you will see last.pt and best.pt files, use those file and rename it like here I renamed " lastsmall1000all.pt"  and keep in your working directory name as detectfish.  
+We use the model to detect fish in images or videos:
 ```python
 import cv2
 from ultralytics import YOLO
