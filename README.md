@@ -138,7 +138,7 @@ Now, We need to count them,
 I have attached all the necessary documents except footage for footage you can download from "[mydataset](https://www.youtube.com/watch?v=Z0DoiaABzoY)"
 Here you can fine tune sort.py file such that you can easily get desirable results. In classes.txt, we 
 define classes name. If you are using multiple classes just include in that and make a change in count_fish.py as well.
-
+If you are going to count other object then go for it. It will work. Just remember you will need to have pytorch model i.e., .pt file. Thats all.
 Now download all the files in same folder and start counting. Good luck.
 
 For improvements or contributions, feel free to submit a pull request!
