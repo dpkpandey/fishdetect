@@ -21,13 +21,13 @@ class FishCounter:
         self.tracker = Sort(max_age=1, min_hits=1, iou_threshold=0.1)  # Initialize SORT tracker with max age for quick forgetting
         self.video_path = video_path
         self.output_path = output_path
-        self.output_path1 = output_path1
+        self.output_path1 = output_path1 #This is for to generate just footage without any detection so we can test in other program as well if you are doing live recording otherwise remove output_path1 from all
         self.counter_up = set()
         self.total_length = 0
         self.total_weight = 0
         self.object_count = 0
         self.fish_data = []
-        self.line = [540, 460, 800, 460]  # Define the counting line
+        self.line = [540, 460, 800, 460]  # Define the counting line Sometimes you might need to change it when you are working in horizontal movement or vertical. Just manually change it.
         #self.line = [550, 440, 790, 440]
 
     def calculate_weight(self, theta_deg, l_theta, b_theta, dpk):
@@ -166,10 +166,15 @@ class FishCounter:
         return results['l_theta'][0], results['weight'][0]
 
     def run(self):
-        cap = cv2.VideoCapture(self.video_path)
+        cap = cv2.VideoCapture(self.video_path) # Well if you want to use webcam use (0) or (1) depending the number of camera.
+        '''#If you are interested in the IP address or online streaming then use "rtsp:\\192.168.1.1\stream" it might work sometimes
+        #defining url as 
+        # url="rtsp://192.168.26.160/stream"
+        #cap = cv2.VideoCapture(url)#self.video_path)
+        # cap = cv2.VideoCapture(self.video_path)'''
         
         '''frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))'''
+        frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))''' # use these if you counting from saved footage but if you want to get maximum quality and FPS use below and change resolution and fps as you want
         frame_width = int(cap.set(cv2.CAP_PROP_FRAME_WIDTH,1280))
         frame_height = int(cap.set(cv2.CAP_PROP_FRAME_HEIGHT,720))
         
@@ -207,9 +212,9 @@ class FishCounter:
         print("Count and data exported to Excel files.")
 
     def add_data_to_excel(self, object_count, source_from, source_to, fish_size, average_length, average_weight):
-        filename = 'deepak1.xlsx'
+        filename = 'dpkdata.xlsx'
         timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-        temp_filename = f'temp_deepak_{timestamp}.xlsx'
+        temp_filename = f'temp_dpkdata_{timestamp}.xlsx'
 
         if os.path.exists(filename):
             wb = load_workbook(filename)
@@ -277,11 +282,13 @@ class FishCounter:
             print(f"Data has been saved to a temporary file: {temp_filename}")
 
 
+   
+
 if __name__ == '__main__':
     fish_counter = FishCounter(
-        model_path="lastY11m500.pt",
+        model_path="lastY11m500.pt", #Replace with your trained model if you want to use YOLO pre-trained model just put one "yolov8n.pt" like this.
         video_path="rds.mp4",  # Replace with the correct path to video
-        output_path="jan10_3123results.mp4",  # Replace with desired output file name
+        output_path="My_results.mp4",  # Replace with desired output file name
         output_path1="compare_output2.mp4"  # Replace with desired output file name
     )
     fish_counter.run()
