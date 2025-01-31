@@ -93,11 +93,9 @@ val: images
 names:
   0: fish
 ```
-### For multiple classes (e.g., algae detection) : You can skip this for now
+### For multiple classes (e.g., algae detection) : #  <span style="color: red;">This is the path of your current directory</span> # **`This is the path of your current directory`**
 ```yaml
-path: C:\Users\YourComputer\Desktop\algaedetect  #  <span style="color: red;">This is the path of your current directory</span> # **`This is the path of your current directory`**
-
-
+path: C:\Users\YourComputer\Desktop\algaedetect  #This is the path of your current directory
 train: images
 val: images
 nc: 15
