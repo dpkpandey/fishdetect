@@ -27,11 +27,17 @@ to you Operating System (OS) then type cd Desktop/fishdetect ( For Windows use
 
 Then you will be on the fishdetect folder now you all need to do is to create virtual
 local python environment just by typing
+
 In Windows: python –m venv myenv
+
 Then type myenv\Scripts\activate
+
 Then python detect.py (this detect.py file is to run the command skip for now)
+
 In Linux: python3 -m venv myenv
+
 Then type source myenv/bin/activate
+
 Then python3 detect.py
 
 
@@ -80,7 +86,7 @@ folder in your working directory, i.e., fishdetect. Now, we need to create .yaml
 You can name as you want I am naming as fishdetect.yaml for my conveniences.
 
 Now, in fishdetect.yaml file it should be like this
-Path: C:\ Users\ DeepakPandey\ Desktop\ fishdetect
+Path: C:\ Users\ yourcomputer\ Desktop\ fishdetect
 Train: images
 Val: images
 #Classes:
@@ -93,7 +99,7 @@ and validation and what classes are available in our data.
 Well if you have more than one class then you can define here at first after annotation.
 Like if we are working with algae then
 
-path: C:\Users\DeepakPandey\Desktop\algaedetect
+path: C:\Users\Yourcomputer\Desktop\algaedetect
 train: images
 val: images
 nc: 15
