@@ -2,10 +2,14 @@
  If you want to dig little bit more in the theory behind this algorithms and how it is really working. In this section I am bit trying to explain, there could be some misleading
  so, anyone can correct if they find it wrong. YOU ARE MOST WELCOME TO CONTRIBUTE.
  As we are using, YOLO model to first detect and count the fish. In future we will do more than that. 
- I assume you have gone through $\textcolor{red{README.md}}$ file 
+ I assume you have gone through $\textbf{\textcolor{purple}{README.md}}$ file. So, that I do not have to explain steps here.
 
-First Now,
-##  1. Install python in your computer. 
+## What is Machine Learning ?
+ ## How YOLO works?
+ ## HOW different tracks are important and how to use them?
+ ## How Length and Weight of fish are calculated?
+ ### How we save the file in computer especially export in excel file 
+ ##  1. Install python in your computer. 
 Where do you want to do this job. If you choose your local environment as IDLE or visual studio or any pycharm or Google Colab or Jupyternotebook.
 
 I love to do in local environment rather than googlecolab but there is code for both. It is almost same]
