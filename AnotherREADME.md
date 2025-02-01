@@ -6,6 +6,130 @@
 
 ## What is Machine Learning ?
 
+
+$$
+CO_2 = 1.22 \times (Alkalinity) \times 10^{(-43.6977 - 0.0129037 \times (Salinity) + 1.364 \times 10^{-4} \times (Salinity)^2 + 2885.378 / (273.15 + Temp) + 7.045159 \times \log(273.15 + Temp)) - pH}
+$$
+
+
+
+# YOLO (You Only Look Once) - Comprehensive Guide
+
+YOLO (You Only Look Once) is a state-of-the-art real-time object detection framework. It processes an image in a single forward pass through a deep neural network, making it highly efficient compared to traditional object detection methods.
+
+## **1. Theoretical Foundation**
+
+### **1.1 Object Detection as a Regression Problem**
+
+YOLO reformulates object detection as a single regression problem instead of using region proposal methods (e.g., R-CNN). This allows it to predict bounding boxes and class probabilities directly from an image.
+
+Mathematically, YOLO predicts:
+- **Bounding Box Coordinates**: \( x, y, w, h \)
+- **Object Confidence Score**: \( C \)
+- **Class Probabilities**: \( P(c_i) \)
+
+The final score for each bounding box is calculated as:
+\[
+Score = C \times P(c_i)
+\]
+
+### **1.2 Grid Cell Division**
+
+The input image is divided into an \( S \times S \) grid. Each grid cell predicts \( B \) bounding boxes and their associated confidence scores. Each bounding box is represented as:
+\[
+(x, y, w, h, C)
+\]
+
+Where:
+- \( x, y \) are relative to the grid cell.
+- \( w, h \) are normalized relative to the image dimensions.
+- \( C \) represents the confidence score, incorporating Intersection over Union (IoU) between the predicted and ground truth box.
+
+### **1.3 Loss Function**
+
+The YOLO loss function consists of three main components:
+
+\[
+\mathcal{L} = \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{obj} \Big[ (x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2 \Big] \\
++ \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{obj} \Big[ (\sqrt{w_i} - \sqrt{\hat{w}_i})^2 + (\sqrt{h_i} - \sqrt{\hat{h}_i})^2 \Big] \\
++ \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{obj} (C_i - \hat{C}_i)^2 \\
++ \lambda_{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{noobj} (C_i - \hat{C}_i)^2 \\
++ \sum_{i=0}^{S^2} \mathbb{1}_{i}^{obj} \sum_{c \in classes} (p_i(c) - \hat{p}_i(c))^2
+\]
+
+Where:
+- \( \mathbb{1}_{ij}^{obj} \) indicates if object appears in the cell.
+- \( \lambda_{coord} \) and \( \lambda_{noobj} \) are weight parameters.
+
+---
+
+## **2. YOLO Architecture**
+
+YOLO models utilize CNN-based backbones for feature extraction. The most commonly used architectures include:
+
+| Version  | Backbone          | Key Improvements |
+|----------|------------------|------------------|
+| YOLOv1   | Darknet-19       | First iteration |
+| YOLOv2   | Darknet-19       | Anchor boxes, batch normalization |
+| YOLOv3   | Darknet-53       | Multi-scale detection |
+| YOLOv4   | CSPDarknet53     | Mish activation, PANet |
+| YOLOv5   | CSPDarknet53     | Focus layer, AutoAnchor tuning |
+| YOLOv6-8 | Transformer-CNN  | Efficient layer aggregation |
+| YOLOv11  | C3K2 Blocks      | Improved attention mechanisms |
+
+---
+
+## **3. YOLO Code Implementation (YOLOv5)**
+
+Below is a simple implementation of YOLOv5 using PyTorch:
+
+```python
+import torch
+from yolov5 import detect
+
+# Load pre-trained YOLOv5 model
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+
+# Perform inference on an image
+image_path = 'image.jpg'
+results = model(image_path)
+
+# Display results
+results.show()
+```
+
+---
+
+## **4. Key Parameters in YOLO Models**
+
+- **Confidence Threshold (conf-thres):** Filters out detections below a certain probability.
+- **IoU Threshold (iou-thres):** Determines overlap for non-maximum suppression.
+- **Anchor Boxes:** Predefined sizes used for bounding box regression.
+- **Batch Size:** Number of images processed per training step.
+- **Learning Rate:** Controls weight updates during training.
+
+---
+
+## **5. Conclusion**
+
+YOLO remains a powerful and efficient object detection framework due to its speed and accuracy. It continues to evolve with improved architectures and optimizations, making it suitable for real-world applications such as surveillance, autonomous driving, and medical imaging.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  # YOLO (You Only Look Once) - Object Detection
 
 YOLO is a real-time object detection algorithm that processes an image in a single pass through a neural network. Unlike traditional object detection methods, which apply classifiers to different regions of an image, YOLO treats detection as a single regression problem, predicting bounding boxes and class probabilities simultaneously.
@@ -50,99 +174,5 @@ Would you like help implementing YOLO for a specific task? 🚀
  ## HOW different tracks are important and how to use them?
  ## How Length and Weight of fish are calculated?
  ### How we save the file in computer especially export in excel file 
- ##  1. Install python in your computer. 
-Where do you want to do this job. If you choose your local environment as IDLE or visual studio or any pycharm or Google Colab or Jupyternotebook.
-
-I love to do in local environment rather than googlecolab but there is code for both. It is almost same]
-Lets dig in 
-
-This is where we need to mainly focus. As we are performing this work in python
-so first of all we need to install python in our computer. It is better to install latest
-version of the software. ( sometimes we might need to downgrade software version be-
-cause of compatibilities of other module). If you are working in Windows just download
-python and install it. If you are woking in Linux then, Go to terminal and type
-
-```bash
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install python3 -y
-```
-
-
-# 2. Set Up Your Working Directory
-Create a new folder for your project. For example, create a folder named fishdetect on your Desktop. Navigate to this folder using the command prompt or terminal:
-# Windows
-cd Desktop\fishdetect
-
-# Linux
-cd Desktop/fishdetect
-
-Now, you have python installed in your system. Find out the working directory where
-you are going to work. I worked in both Ubuntu and Windows environment. So, I
-made new folder in Desktop for my comfort and named as ”fishdetect” in both com-
-puter. So, I will explain what to do. Go to command prompt or terminal according
-to you Operating System (OS) then type cd Desktop/fishdetect ( For Windows use
-\and for linux use /)
-
-
-Then you will be on the fishdetect folder now you all need to do is to create virtual
-local python environment just by typing
-
-In Windows: python –m venv myenv
-
-Then type myenv\Scripts\activate
-
-Then python detect.py (this detect.py file is to run the command skip for now)
-
-In Linux: python3 -m venv myenv
-
-Then type source myenv/bin/activate
-
-Then python3 detect.py
-
-
-We are intend to work in Ultralytics, such that we need to install some packages before
-we do other stuff.
-
-
-Now lets do first upgrade our pip packages
-```bash
-python3 -m pip install –upgrade pip
-
-pip install ultralytics
-
-pip install opencv
-
-pip install numpy
-
-pip install openpyxl
-
-pip install torch
-```
-
-As other packages as required. If you intended to get out from virtual environment the
-just type deactivate.
-
-For small work with less dataset you might be able to get everthing with CPU, for
-large amount of data and work in real time we need to use GPU.
-
-Enable GPU Accelerator for this simulation:
-To access GPU capabilities, we need to focus on the compatibility of the cuda version
-with the computer we are working on. For example, GEFORCE RTX 3060, cuda 12.6
-pre version is compatible. So, first go to the Nvidia website for cuda and download
-recommended version and install it on the computer. You might need admin access to
-install this software. It will help you to use GPU for the pytorch. Go to this website
-“https://pytorch.org/” and choose which pytorch build you want
-to use. For lower version of the cuda compute platform choose your build. Then choose
-your OS system. In this case I am using a pip so I will go for the pip package. If you
-are working with annoconda you can choose conda package. And language is python
-for this program. If you are working with C++ or Java, you can choose that and your
-installed cuda version. Then you will get run command at bottom, copy and paste in
-the terminal where you have installed virtual environment. Now you should be able to
-run GPU enabled pytorch for simulation.
-Now, before we jump in any we need data, lets jump in roboflow and sign up or log in.
-For public project you get it for free thanks to them. Now insert images and annotate
-and export them. Put all images in images folder and all annotated .txt file in labels
-folder in your working directory, i.e., fishdetect. Now, we need to create .yaml file.
-You can name as you want I am naming as fishdetect.yaml for my conveniences.
 
 
