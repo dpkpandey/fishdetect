@@ -1,5 +1,8 @@
- # FishCountchang
-Use YOLO model to count fish
+ # Fish Counting 
+ If you want to dig little bit more in the theory behind this algorithms and how it is really working. In this section I am bit trying to explain, there could be some misleading
+ so, anyone can correct if they find it wrong. YOU ARE MOST WELCOME TO CONTRIBUTE.
+ As we are using, YOLO model to first detect and count the fish. In future we will do more than that. 
+ I assume you have gone through $\textcolor{red{README.md}}$ file 
 
 First Now,
 ##  1. Install python in your computer. 
