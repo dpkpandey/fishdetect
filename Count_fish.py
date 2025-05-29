@@ -18,13 +18,13 @@ class FishCounter:
     def __init__(self, model_path, video_path, output_path, output_path1):
         self.model = YOLO(model_path)
         self.class_list = ['fish']
-        self.tracker = Sort(max_age=0.1,min_hits=-0,iou_threshold=0.0)  # Initialize SORT tracker with max age for quick forgetting
+        self.tracker = Sort(max_age=20,min_hits=2,iou_threshold=0.1)  # Initialize SORT tracker with max age for quick forgetting
         '''IF we work on the max_age, higher number is better to sort and remember the tracking ID and number for longer period
            of time as it works in FPS rather than seconds, so max_age =10 means that it will forget any fish if they missed out
            for 10 frames.
-           Similarly, for min_hits =3 gives idea about
-
-           And fixing iou_threshold=0.1 gives you more tracking option precisely.'''
+           Similarly, for min_hits =3 means that when fish appeared for 3 consecutive frames then only it will assign new ID no. This is important to tune,
+           because if fish flip or change shape then camera may count twice near to counting line. This prevents double counting and by skipping for three consecutive frames, and 
+           fixing iou_threshold=0.1 gives you more tracking option precisely.'''
         self.video_path = video_path
         self.output_path = output_path
         self.output_path1 =output_path1
@@ -113,7 +113,7 @@ class FishCounter:
 
             # Check if object crossed the counting line
            # if self.line[0] < cx < self.line[2] and abs(cy - self.line[1]) <= 400:
-            if self.line[0] <cx< self.line[2] and  (cy- 200) <self.line[1] <  (cy + 200):    
+            if self.line[0] <cx< self.line[2] and  (cy- 120) <self.line[1] <  (cy + 50):    
                 cv2.line(frame, (self.line[0], self.line[1]), (self.line[2], self.line[3]), (0, 255, 0), 15)
                 if id not in self.counter_up:
                     self.counter_up.add(id)
