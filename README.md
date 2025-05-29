@@ -158,6 +158,26 @@ This approximation works fine for Barramundi fish for any size becasue of empric
 applicable for detection, if you want to work on OBB detection then you can direclty impliment length and width as in detection no need to use " $\textcolor{red}{dpk-length}$ $\textcolor{red}{ transformation"}$. However,
 simple detection is faster for real time detection and counting as compare to OBB with small computational power.
 
+## 12. Optimize with Tensorrt for faster 
+
+If you need to count or detect in very fast moving motion, then your yolo.pt file may not be fast enough to work in high FPS in real time. However, using nvidia cuda toolkit and pytorch, now we can install tensorrt.
+```bash
+pip3 install tensorrt
+```
+
+After installation, we can generate optimize file which is balanced and optimized for fast operation. 
+
+At first we need to generate .engine file using above command 
+
+'''bash 
+from ultralytics import YOLO
+
+model= YOLO("last.pt") #whaterver you have used as a model
+model.export( format="engine", task="detect", half="True) #this creates last.engine
+
+tensorrt_model = YOLO("last.engine")
+'''
+
 
 ## References
 
