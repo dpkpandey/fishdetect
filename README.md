@@ -169,14 +169,14 @@ After installation, we can generate optimize file which is balanced and optimize
 
 At first we need to generate .engine file using above command 
 
-'''bash 
+```bash
 from ultralytics import YOLO
 
 model= YOLO("last.pt") #whaterver you have used as a model
 model.export( format="engine", task="detect", half="True) #this creates last.engine
 
 tensorrt_model = YOLO("last.engine")
-'''
+```
 
 
 ## References
