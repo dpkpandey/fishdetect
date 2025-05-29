@@ -173,11 +173,11 @@ At first we need to generate .engine file using above command
 from ultralytics import YOLO
 
 model= YOLO("last.pt") #whaterver you have used as a model
-model.export( format="engine", task="detect", half="True) #this creates last.engine
+model.export( format="engine", task="detect", half="True) #this creates last.engine, task means what you want to do with this optimization. And with half =True select FP16 (half precisison) or you can use 'optimize=True' 
 
 tensorrt_model = YOLO("last.engine")
 ```
-
+You will get optimized file "last.engine" which is almost equivalent to the .pt file in term of performance and it is 2 times faster than yolo.pt model.
 
 ## References
 
